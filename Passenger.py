@@ -6,9 +6,9 @@ class Passenger:
 
     def enter_bus(self, bus):
         if self.bus is None:  # Проверяем, что пассажир не находится в другом автобусе
-            self.bus = bus
-            bus.take_passenger(self)
-            print(f"{self.name} сел в автобус.")
+            if bus.take_passenger(self):
+                self.bus = bus
+                print(f"{self.name} сел в автобус.")
 
     def exit_bus(self):
         if self.bus is not None:
